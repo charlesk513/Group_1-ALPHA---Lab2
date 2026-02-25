@@ -3,9 +3,11 @@
 ******************************************************************************/
 
 Group members:
-- [...]
-- [...]
-- [...]
+- [KABUNGA CHARLES    2025/BCS/084/PS]
+- [AKEBA HILARY       2025/BCS/027/PS]
+- [KANGUME LAWRENCE   2025/BCS/089/PS]
+- [AMARA BLAIR        2025/BCS/028/PS]
+- [AMWINE SHARON      2024/BCS/037/PS]
 
 /******************************************************************************
 ** Task: Figuring out the complexity
@@ -16,21 +18,21 @@ Group members:
 
 Insertion.java on:
 
-- random inputs:      [Quadratic] [Linearithmic] [Linear]
-- 95% sorted inputs:  [Quadratic] [Linearithmic] [Linear]
-- sorted inputs:      [Quadratic] [Linearithmic] [Linear]
+- random inputs:      Quadratic  (n²)
+- 95% sorted inputs:  Linear     (n)
+- sorted inputs:      Linear     (n)
 
 Quick.java on:
 
-- random inputs:      [Quadratic] [Linearithmic] [Linear]
-- 95% sorted inputs:  [Quadratic] [Linearithmic] [Linear]
-- sorted inputs:      [Quadratic] [Linearithmic] [Linear]
+- random inputs:      Linearithmic  (n logn)
+- 95% sorted inputs:  Quadratic     (n²)
+- sorted inputs:      Quadratic     (n²)
 
 Merge.java on:
 
-- random inputs:      [Quadratic] [Linearithmic] [Linear]
-- 95% sorted inputs:  [Quadratic] [Linearithmic] [Linear]
-- sorted inputs:      Linearithmic
+- random inputs:      Linearithmic  (n logn)
+- 95% sorted inputs:  Linearithmic  (n logn)
+- sorted inputs:      Linearithmic  (n logn)
 
 /******************************************************************************
 ** Task: Improving quicksort
@@ -40,14 +42,19 @@ Merge.java on:
 **    If so, what is it that changes?
 ******************************************************************************/
 
-Shuffling the array first:
-[no] [yes+what changes]
+Shuffling the array first: Yes
+Shuffling the array first before sorting randomises the elements in an array, 
+preventing worst-case inputs, and making balanced partitions
+bringing the expected linearithmic complexity (n logn).
 
-Median-of-three pivot selection:
-[no] [yes+what changes]
+Median-of-three pivot selection: Yes
+Median-of-three improves pivot quality, maintains balanced partitions
+improves performance of the algorithm 
 
-Insertion sort for small subarrays:
-[no] [yes+what changes]
+Insertion sort for small subarrays: Yes
+Insertion sort on small arrays causes recursion overhead 
+So insertion sort works better on small aray sizes faster than quick sort
+preventing the worst case quadratic complexity
 
 /******************************************************************************
 ** 3. What is a good cutoff to use for insertion sort?
@@ -55,13 +62,18 @@ Insertion sort for small subarrays:
 **    Remember that you should try to find the answer in a systematic way.
 ******************************************************************************/
 
-[...]
+According to our approach, 40 is the best cutoff value for insertion sort.
+we re-edited the size of the array to be 20, 40, 60, 80, 100, 120, 
+set the cutoff value to be at 140, we benchmarked the algorithm and indeed 40 was the best 
+suitable value to give the possible minimum execution time basing on the results of other values.
 
 /******************************************************************************
 ** 4. Which combination of improvements gives the best performance?
 ******************************************************************************/
 
-[...]
+Shuffling first before sorting, implementing the median of first, middle, and the last element in the array
+and using insertion sort for smaller arrays. Improves code complexity, 
+maintains balanced partitions and eases sorting smaller arrays.
 
 /******************************************************************************
 ** Appendix: General information
@@ -69,16 +81,19 @@ Insertion sort for small subarrays:
 ** A. Approximately how many hours did you spend on the assignment?
 ******************************************************************************/
 
-[..group member..]:  [..hours..]
-[..group member..]:  [..hours..]
-[..group member..]:  [..hours..]
+[Kabunga Charles]: [ 6 hrs ]
+[Akeba Hilary]:    [ 10 hrs ]
+[Kangume Lawrence]:[ 8 hrs ]
+[Amara Blair]:     [ 9 hrs ]
+[Amwine Sharon]:   [ 8 hrs ]
 
 
 /******************************************************************************
 ** B. Are there any known bugs / limitations?
 ******************************************************************************/
 
-[...]
+We have no bugs inspected,
+the performance varries in accordance to hardware and compiler optimisations.
 
 /******************************************************************************
 ** C. Did you collaborate with any other students on this lab?
@@ -87,13 +102,15 @@ Insertion sort for small subarrays:
 **    may have used in creating your design.
 ******************************************************************************/
 
-[...]
+As a group, we discussed the lab and from our knowledge of java  programming
+and the learning tutorials provided on the google drive contributed to our success.
 
 /******************************************************************************
 ** D. Describe any serious problems you encountered.                    
 ******************************************************************************/
 
-[...]
+Deriving the algorithm complexity from the results attained, was initially a problem
+as we hadn't thought of how we could mathematically come up with a satisfying method. 
 
 /******************************************************************************
 ** E. List any other comments here.
@@ -101,4 +118,6 @@ Insertion sort for small subarrays:
 **    from doing the assignment, and whether you enjoyed it.                                             
 ******************************************************************************/
 
-[...]
+The Aassignment was so enjoyable as we learnt more about the actual implementation of 
+the language and more on deriving complexities practically compared to the assumptions we were making
+basing on the theoretical big O notation.

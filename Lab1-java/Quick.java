@@ -1,21 +1,27 @@
 import java.util.Random;
 
 /**
- *  For additional documentation on this implementation of quicksort,
- *  see <a href="https://algs4.cs.princeton.edu/23quick">Section 2.3</a>
- *  of <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * For additional documentation on this implementation of quicksort,
+ * see <a href="https://algs4.cs.princeton.edu/23quick">Section 2.3</a>
+ * of <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  */
 public class Quick {
-    
+
     /**
      * Instantiate the quicksort algorithm with the given options.
-     * @param shuffleFirst         If true, shuffle the array before quicksorting it.
-     * @param useMedianOfThree     If true, use the median-of-three technique for pivot selection.
-     *                             In the recursive call for quicksorting a[lo..hi],
-     *                             the first element a[lo] is used as pivot by default.
-     *                             Instead, this uses the median of the first, middle, and last element of a[lo..hi].
-     * @param insertionSortCutoff  Switch to insertion sort in the recursive call for quicksorting a[lo..hi]
-     *                             once the size of a[lo..hi] is less than the given cutoff value.
+     * 
+     * @param shuffleFirst        If true, shuffle the array before quicksorting it.
+     * @param useMedianOfThree    If true, use the median-of-three technique for
+     *                            pivot selection.
+     *                            In the recursive call for quicksorting a[lo..hi],
+     *                            the first element a[lo] is used as pivot by
+     *                            default.
+     *                            Instead, this uses the median of the first,
+     *                            middle, and last element of a[lo..hi].
+     * @param insertionSortCutoff Switch to insertion sort in the recursive call for
+     *                            quicksorting a[lo..hi]
+     *                            once the size of a[lo..hi] is less than the given
+     *                            cutoff value.
      */
     public Quick(boolean shuffleFirst, boolean useMedianOfThree, int insertionSortCutoff) {
         this.shuffleFirst = shuffleFirst;
@@ -29,13 +35,15 @@ public class Quick {
 
     /**
      * Rearranges the array in ascending order, using the natural order.
+     * 
      * @param a the array to be sorted
      */
     public void sort(int[] a) {
         if (shuffleFirst) {
             // TODO: Randomise the array before sorting.
             // Hint: There is a static method shuffle.
-            throw new UnsupportedOperationException("to be implemented");
+            shuffle(a);
+            // throw new UnsupportedOperationException("to be implemented");
         }
 
         sort(a, 0, a.length - 1);
@@ -45,34 +53,42 @@ public class Quick {
     // Quicksort the subarray a[lo..hi].
     // This is the recursive workhorse of the algorithm.
     private void sort(int[] a, int lo, int hi) {
-        if (hi <= lo) return;
+        if (hi <= lo)
+            return;
 
         // TODO: check if the size of a[lo..hi] is below the cutoff value
-        if (false) {
+        boolean cutoff = a.length < insertionSortCutoff;
+        if (cutoff) {
             // TODO: Switch to insertion sort.
-            throw new UnsupportedOperationException("to be implemented");
+            Insertion.sort(a);
+
+            // throw new UnsupportedOperationException("to be implemented");
         }
 
         int j = partition(a, lo, hi);
-        sort(a, lo, j-1);
-        sort(a, j+1, hi);
+        sort(a, lo, j - 1);
+        sort(a, j + 1, hi);
         assert Insertion.isSorted(a, lo, hi);
     }
 
     // Partition the subarray a[lo..hi] so that
-    //   a[lo..j-1] <= a[j] <= a[j+1..hi]
+    // a[lo..j-1] <= a[j] <= a[j+1..hi]
     // and return the index j.
     private int partition(int[] a, int lo, int hi) {
         if (useMedianOfThree) {
             // TODO: Find the median of the first, last and middle
             // elements of a[lo..hi], and swap it with a[lo].
             // Hint: Use the static methods medianOfThree and exchange.
-            throw new UnsupportedOperationException("to be implemented");
+
+            int k = (hi + lo) / 2;
+            int median = medianOfThree(a, lo, hi, k);
+            exchange(a, lo, median);
+            // throw new UnsupportedOperationException("to be implemented");
         }
 
         int i = lo;
         int j = hi + 1;
-        
+
         // a[lo] is used as pivot.
         int pivot = a[lo];
 
@@ -91,8 +107,10 @@ public class Quick {
         // the main loop
         while (i < j) {
             exchange(a, i, j);
-            while (a[++i] < pivot);
-            while (pivot < a[--j]);
+            while (a[++i] < pivot)
+                ;
+            while (pivot < a[--j])
+                ;
         }
 
         // Put pivot item v at a[j].
@@ -102,10 +120,10 @@ public class Quick {
         return j;
     }
 
-   /***************************************************************************
-    *  Helper sorting functions.
-    ***************************************************************************/
-    
+    /***************************************************************************
+     * Helper sorting functions.
+     ***************************************************************************/
+
     // Exchange a[i] and a[j].
     private static void exchange(int[] a, int i, int j) {
         int swap = a[i];
@@ -120,8 +138,10 @@ public class Quick {
         boolean x = a[i] < a[j];
         boolean y = a[j] < a[k];
         boolean z = a[k] < a[i];
-        if (x == y) return j;
-        if (y == z) return k;
+        if (x == y)
+            return j;
+        if (y == z)
+            return k;
         return i; // z == x
     }
 
@@ -137,3 +157,7 @@ public class Quick {
     private static Random random = new Random(314159265);
 
 }
+
+/**
+ * @author Charles k Group Alpha
+ */
