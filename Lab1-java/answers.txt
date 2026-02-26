@@ -62,9 +62,9 @@ preventing the worst case quadratic complexity
 **    Remember that you should try to find the answer in a systematic way.
 ******************************************************************************/
 
-According to our approach, 40 is the best cutoff value for insertion sort.
-we re-edited the size of the array to be 20, 40, 60, 80, 100, 120, 
-set the cutoff value to be at 140, we benchmarked the algorithm and indeed 40 was the best 
+According to our approach, 25 is the best cutoff value for insertion sort.
+we re-edited the size of the array to be 10, 15, 20, 25, 30, 35, 40, 45, 50, 60
+set the cutoff value to be at 100, we benchmarked the algorithm and 25 was the best 
 suitable value to give the possible minimum execution time basing on the results of other values.
 
 /******************************************************************************
