@@ -1,3 +1,18 @@
+
+/******************************************************************************
+** CSC 1203 Data Structures and Algorithms
+** 
+** Lab 2: Autocomplete
+*******************************************************************************/
+
+Name of lab group: [Autocomplete]
+Group member A:    [Kabunga Charles]
+Group member B:    [Amwine Sharon]
+Group member C:    [Akeba Hilary]
+Group member D:    [Amara Blair]
+Group member C:    [Kangume Lawrence]
+
+
 /******************************************************************************
 ** 1. Describe how your firstIndexOf() method in RangeBinarySearch.java
 **    finds the first index of a key that equals the search key.
@@ -11,8 +26,8 @@ array using a comparator. If a match is found, the method records the index into
 but continues searching on the left half of the array to check if there is an
 earlier occurrence of the same key to be returned as the first occurance
 
-This process continues until the search space is exhausted. The stored index
-is then returned as the first position where the key appears. If no match is
+This process continues until the search space with the same prefix as the key is exhausted. 
+The stored index is then returned as the first position where the key appears. If no match is
 found, the method returns -1 as our default value of result.
 
 
@@ -24,19 +39,21 @@ found, the method returns -1 as our default value of result.
 
 sortDictionary():  [ O(n log n) ]
 
-The dictionary is sorted using Arrays.sort() with a comparator. Sorting n
-terms requires n log n comparisons in the worst case.
+The dictionary is sorted using the sort method in Arrays class imported from java.util package 
+with a comparator to guide on how to sort. Sorting n terms takes n log n comparisons in the worst case.
 
 allMatches():  [ O(log n + m log m) ]
 
-First, binary search is used twice to locate the first and last matching
-prefix, which takes 2(O(log n)) comparisons and we ignore constatnts. Then the m matching terms are
-copied and sorted by reverse weight order, which takes O(m log m).
+First, binary search is used twice to locate the first and last matching prefix, 
+which takes 2(O(log n)) comparisons and we ignore constants. Then the m matching terms 
+are sorted by reverse weight order, which takes O(m log m).
 
 numberOfMatches():  [ O(log n) ]
 
 This method only performs two binary searches to find the first and last
-occurrence of the prefix. No additional sorting or copying is performed.
+occurrence of the prefix. No additional sorting or copying is performed and it performs 
+a subtraction of the last minus the first occurances plus one to return the number of 
+matches hence complexity of O(log n).
 
 /******************************************************************************
 ** Appendix: General information
@@ -44,7 +61,7 @@ occurrence of the prefix. No additional sorting or copying is performed.
 ** A. Approximately how many hours did you spend on the assignment?
 ******************************************************************************/
 
-[Kabunga Charles]:  [ 26  hours ]
+[Kabunga Charles]:  [ 30  hours ]
 [Amwine Sharon]:    [ 23 hours ]
 [Akeba Hilary]:     [ 18  hours ]
 [Amara Blair]:      [ 17  hours ]
@@ -55,8 +72,9 @@ occurrence of the prefix. No additional sorting or copying is performed.
 ** B. Are there any known bugs / limitations?
 ******************************************************************************/
 
-No major bugs were identified. The implementation of our lab assumes that the dictionary
-is sorted before performing any binary search operations.
+No major bugs were identified. The implementation of our lab may limit the output 
+prefixes basing on the dictionary file we have opened at runtime hence higher 
+chances of missing out the right query.
 
 
 /******************************************************************************
@@ -66,11 +84,10 @@ is sorted before performing any binary search operations.
 **    may have used in creating your design.
 ******************************************************************************/
 
-We discussed the design and algorithm concepts as a group. Each member helped
+We discussed the algorithm concepts as a group. Each member helped
 in understanding binary search and comparator usage in Java.
 
-We also referred to the official Java documentation for Comparator and
-Arrays.sort() for clarification.
+We also researched about API usage in Java from the Head First page 154.
 
 
 /******************************************************************************
@@ -80,7 +97,8 @@ Arrays.sort() for clarification.
 Understanding how the modified binary search finds the first and last
 occurrence of a prefix was initially challenging. Once the logic of searching
 left for the first index and right for the last index was understood, the
-implementation became clearer.
+implementation became clearer. and following up withhow methods are linked 
+in multiple files was also challenging.
 
 
 /******************************************************************************
@@ -91,6 +109,7 @@ implementation became clearer.
 
 This assignment helped us understand how binary search can be adapted for
 different problems such as prefix searching. It also improved our
-understanding of comparators and sorting in Java. Overall, the lab was
-challenging but useful for learning efficient search techniques. 
+understanding of comparators and sorting in Java. 
+Overall, the lab was challenging but useful for learning efficient search techniques. 
 As many methods are implemented in other files, it was initially hard to follow up.
+
