@@ -10,7 +10,9 @@ Group member A:    [Kabunga Charles]
 Group member B:    [Amwine Sharon]
 Group member C:    [Akeba Hilary]
 Group member D:    [Amara Blair]
-Group member C:    [Kangume Lawrence]
+Group member E:    [Kangume Lawrence]
+Group member F:    [Namanya Florence]
+
 
 
 /******************************************************************************
@@ -18,8 +20,8 @@ Group member C:    [Kangume Lawrence]
 **    finds the first index of a key that equals the search key.
 ******************************************************************************/
 
-The firstIndexOf() method uses a binary search to locate the first
-occurrence of a term that matches the search key.
+The firstIndexOf() method uses a binary searching technique to locate the first
+occurrence of a term that matches the search key (prefix).
 
 The algorithm compares the key with the middle element of the sorted
 array using a comparator. If a match is found, the method records the index into the result variable
@@ -66,6 +68,7 @@ matches hence complexity of O(log n).
 [Akeba Hilary]:     [ 18  hours ]
 [Amara Blair]:      [ 17  hours ]
 [Kangume Lawrence]: [ 20 hours ]
+[Namanya Florence]: [ 20 hours ]
 
 
 /******************************************************************************
@@ -97,7 +100,7 @@ We also researched about API usage in Java from the Head First page 154.
 Understanding how the modified binary search finds the first and last
 occurrence of a prefix was initially challenging. Once the logic of searching
 left for the first index and right for the last index was understood, the
-implementation became clearer. and following up withhow methods are linked 
+implementation became clearer and following up withhow methods are linked 
 in multiple files was also challenging.
 
 
@@ -112,4 +115,5 @@ different problems such as prefix searching. It also improved our
 understanding of comparators and sorting in Java. 
 Overall, the lab was challenging but useful for learning efficient search techniques. 
 As many methods are implemented in other files, it was initially hard to follow up.
+
 
